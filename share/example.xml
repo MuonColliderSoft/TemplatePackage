@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<marlin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ilcsoft.desy.de/marlin/marlin.xsd">
+
+  <constants>
+  </constants>
+  
+  <!-- ======================================================================================================== -->
+  <!-- ======================================================================================================== -->
+  <!-- == List of processors to execute                                                                      == -->
+  <!-- ======================================================================================================== -->
+  <!-- ======================================================================================================== -->
+
+  <execute>
+    <processor name="MyProcessor"/>
+  </execute>
+
+
+  <!-- ======================================================================================================== -->
+  <!-- ======================================================================================================== -->
+  <!-- == Global setup                                                                                       == -->
+  <!-- ======================================================================================================== -->
+  <!-- ======================================================================================================== -->
+
+  <global>
+    <parameter name="LCIOInputFiles">
+      input_file.slcio
+    </parameter>
+    <!-- Limit the number of processed records (run+evt): -->
+    <parameter name="MaxRecordNumber" value="-1" />
+    <parameter name="SkipNEvents" value="0" />
+    <parameter name="SupressCheck" value="false" />  
+    <parameter name="Verbosity" options="DEBUG0-9,MESSAGE0-9,WARNING0-9,ERROR0-9,SILENT">WARNING </parameter>
+    <parameter name="RandomSeed" value="1234567890" />
+  </global>
+
+
+  <!-- ======================================================================================================== -->
+  <!-- ======================================================================================================== -->
+  <!-- == Processor configuration                                                                            == -->
+  <!-- ======================================================================================================== -->
+  <!-- ======================================================================================================== -->
+
+  <processor name="MyProcessor" type="TemplateProcessor" >
+    <parameter name="MinPt" type="double">2</parameter>
+    <parameter name="InputCollectionName" type="string" lcioInType="MCParticle">MCParticle</parameter>
+    <parameter name="OutputCollectionName" type="string" lcioInType="MCParticle">OutMCParticle</parameter>
+  </processor>
+
+</marlin>
