@@ -15,3 +15,4 @@ jobs:
         run: |
           source /opt/ilcsoft/muonc/init_ilcsoft.sh
           cmake -S. -Bbuild
+          cmake --build build
