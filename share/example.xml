@@ -11,6 +11,7 @@
   <!-- ======================================================================================================== -->
 
   <execute>
+    <processor name="MyAIDAProcessor"/>
     <processor name="MyProcessor"/>
   </execute>
 
@@ -39,6 +40,16 @@
   <!-- == Processor configuration                                                                            == -->
   <!-- ======================================================================================================== -->
   <!-- ======================================================================================================== -->
+
+  <processor name="MyAIDAProcessor" type="AIDAProcessor">
+    <!--Processor that handles AIDA files. Creates on directory per processor.  Processors only need to create and fill the histograms, clouds and tuples. Needs to be the first ActiveProcessor-->
+    <!-- compression of output file 0: false >0: true (default) -->
+    <parameter name="Compress" type="int" value="1"/>
+    <!-- filename without extension-->
+    <parameter name="FileName" type="string" value="histograms"/>
+    <!-- type of output file xml (default) or root ( only OpenScientist)-->
+    <parameter name="FileType" type="string" value="root "/>
+  </processor>
 
   <processor name="MyProcessor" type="TemplateProcessor" >
     <parameter name="MinPt" type="double">2</parameter>

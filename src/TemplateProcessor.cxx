@@ -3,6 +3,8 @@
 #include <EVENT/LCCollection.h>
 #include <EVENT/MCParticle.h>
 
+#include <marlin/AIDAProcessor.h>
+
 #include <cmath>
 
 TemplateProcessor aTemplateProcessor ;
@@ -36,6 +38,10 @@ TemplateProcessor::TemplateProcessor()
 void TemplateProcessor::init() {
   // Print the initial parameters
   printParameters() ;
+
+  // Create useful histograms
+  marlin::AIDAProcessor::histogramFactory(this);
+  _h_pt = new TH1F("pt", "", 100, 0., 10);
 }
 
 void TemplateProcessor::processRunHeader( LCRunHeader* /*run*/) {
@@ -64,6 +70,8 @@ void TemplateProcessor::processEvent( LCEvent * evt ) {
       if(pt<_minPt) {
 	continue; 
       }
+
+      _h_pt->Fill(pt);
   }
 }
 

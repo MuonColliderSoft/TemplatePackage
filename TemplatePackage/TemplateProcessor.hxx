@@ -1,5 +1,7 @@
 #pragma once
 
+#include <TH1F.h>
+
 #include <marlin/Processor.h>
 
 //! A template processor that should be modified to do what you want.
@@ -8,7 +10,7 @@
  * colleciton passing certain criteria. This provides rovides examples of:
  *  - using parameters to configure a processor
  *  - opening collections
- *  - creating new collections
+ *  - outputing histograms
  */
 class TemplateProcessor : public marlin::Processor
 {
@@ -47,5 +49,7 @@ private:
 
   //! Minimum pT for particle filter
   float _minPt = 1;
-  
+
+  //! Output histogram
+  TH1 *_h_pt = nullptr;
 };
