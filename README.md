@@ -12,7 +12,6 @@ Note that official Marlin packages follow a slightly different template. This is
 Start by making a fork or directly cloning the template repository.
 
 ```bash
-cd /scratch/${USER}/tutorial2024
 git clone https://github.com/MuonColliderSoft/TemplatePackage.git
 ```
 
@@ -20,7 +19,7 @@ The package can be compiled by loading the Muon Collider software environment an
 
 ```
 # cmake -S TemplatePackage -B build
-cmake -S TemplatePackage -B build -DILC_HOME=
+cmake -S TemplatePackage -B build
 cmake --build build
 ```
 
