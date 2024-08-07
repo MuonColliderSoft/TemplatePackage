@@ -3,7 +3,7 @@ on: ['push']
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: infnpd/mucoll-ilc-framework:1.6-centos8
+    container: gitlab-registry.cern.ch/muon-collider/mucoll-deploy/mucoll:2.9-alma9
     steps:
       -
         name: Checkout
@@ -13,6 +13,6 @@ jobs:
       -
         name: Build Source Code
         run: |
-          source /opt/ilcsoft/muonc/init_ilcsoft.sh
+          source /opt/setup_mucoll.sh
           cmake -S. -Bbuild
           cmake --build build
