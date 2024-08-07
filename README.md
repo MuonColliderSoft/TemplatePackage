@@ -18,7 +18,6 @@ git clone https://github.com/MuonColliderSoft/TemplatePackage.git
 The package can be compiled by loading the Muon Collider software environment and compiling as any CMake package.
 
 ```
-# cmake -S TemplatePackage -B build
 cmake -S TemplatePackage -B build
 cmake --build build
 ```
